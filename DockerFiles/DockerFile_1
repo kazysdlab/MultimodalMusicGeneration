@@ -1,0 +1,11 @@
+FROM nvcr.io/nvidia/pytorch:23.11-py3
+
+
+RUN apt update
+RUN pip install ftfy regex tqdm && \
+pip install git+https://github.com/openai/CLIP.git
+RUN pip install laion-clap
+RUN mkdir musicgen && \
+cd musicgen
+
+CMD jupyter lab --allow-root --ip=172.17.02 --no-browser
